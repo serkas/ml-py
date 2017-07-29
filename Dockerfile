@@ -21,10 +21,18 @@ RUN cd /usr/src/Python-3.6.0 && ./configure && make altinstall
 RUN rm /usr/src/Python-3.6.0.tgz
 
 RUN python3.6 -m pip install --upgrade pip
+RUN python3.6 -m pip install   numpy \
+                            scipy \
+                            matplotlib \
+                            ipython \
+                            jupyter \
+                            pandas \
+                            sympy \
+                            matplotlib \
+                            scikit-learn \
+                            keras \
+                            tensorflow
 
-RUN python3.6 -m pip install numpy scipy matplotlib ipython jupyter pandas sympy matplotlib scikit-learn
-#RUN apt-get install -y
 
-# python -m pip install --upgrade pip
-
-#RUN pip install numpy scipy matplotlib ipython scikit-learn
+RUN echo "alias python='python3.6'" >> ~/.bashrc
+RUN echo "alias ll='ls -al'" >> ~/.bashrc
